@@ -9,13 +9,10 @@ public class RecurringPaymentsApiClientFactory {
         logger: PSLoggerProtocol? = nil
     ) -> RecurringPaymentsApiClient {
         let interceptor = PSRequestAdapter(credentials: credentials)
-        let trustedSession = PSTrustedSession(
-            interceptor: interceptor,
-            hosts: ["recurring-payments.paysera.com"]
-        )
+        let session = Session(interceptor: interceptor)
         
         return RecurringPaymentsApiClient(
-            session: trustedSession,
+            session: session,
             credentials: credentials,
             tokenRefresher: tokenRefresher,
             logger: logger
