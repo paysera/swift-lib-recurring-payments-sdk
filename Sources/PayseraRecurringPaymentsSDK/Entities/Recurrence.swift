@@ -1,6 +1,5 @@
 import Foundation
 import ObjectMapper
-import PayseraCommonSDK
 import PayseraAccountsSDK
  
 public class Recurrence: Mappable {
