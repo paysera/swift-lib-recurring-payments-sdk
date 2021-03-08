@@ -100,11 +100,10 @@ extension RecurringPaymentsApiRequestRouter: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
         
-        switch self {
-        case _ where method == .post,
-             _ where method == .put:
+        switch method {
+        case .post,
+             .put:
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
-            
         default:
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         }
