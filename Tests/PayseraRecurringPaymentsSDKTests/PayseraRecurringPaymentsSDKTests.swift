@@ -2,7 +2,6 @@ import XCTest
 import JWTDecode
 import PayseraCommonSDK
 import PayseraAccountsSDK
-import PromiseKit
 
 @testable import PayseraRecurringPaymentsSDK
 
