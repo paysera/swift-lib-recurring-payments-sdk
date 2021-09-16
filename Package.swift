@@ -3,13 +3,21 @@ import PackageDescription
 
 let package = Package(
     name: "PayseraRecurringPaymentsSDK",
-    platforms: [.macOS(.v10_12), .iOS(.v10), .tvOS(.v9), .watchOS(.v2)],
+    platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)],
     products: [
         .library(name: "PayseraRecurringPaymentsSDK", targets: ["PayseraRecurringPaymentsSDK"]),
     ],
     dependencies: [
-        .package(name: "PayseraCommonSDK", url: "https://github.com/paysera/swift-lib-common-sdk", from: "4.0.0"),
-        .package(name: "PayseraAccountsSDK", url: "https://github.com/paysera/swift-lib-accounts-sdk", from: "7.0.0")
+        .package(
+            name: "PayseraCommonSDK",
+            url: "https://github.com/paysera/swift-lib-common-sdk",
+            .exact("4.2.0")
+        ),
+        .package(
+            name: "PayseraAccountsSDK",
+            url: "https://github.com/paysera/swift-lib-accounts-sdk",
+            from: "8.1.0"
+        )
     ],
     targets: [
         .target(
