@@ -12,6 +12,7 @@ public class Recurrence: Mappable {
     public var transfer: PSTransfer!
     public var dayOfWeek: Int?
     public var dayOfMonth: Int?
+    public var nextProcessingDate: Date!
     
     public init() {}
     
@@ -19,15 +20,16 @@ public class Recurrence: Mappable {
     }
     
     public func mapping(map: Map) {
-        id              <- map["hash"]
-        active          <- map["active"]
-        status          <- map["status"]
-        type            <- map["recurrence_type"]
-        transferType    <- map["transfer_type"]
-        transfer        <- map["transfer_data"]
-        createdAt       <- (map["created_at"], DateTransform())
-        dayOfWeek       <- map["day_of_week"]
-        dayOfMonth      <- map["day_of_month"]
+        id                  <- map["hash"]
+        active              <- map["active"]
+        status              <- map["status"]
+        type                <- map["recurrence_type"]
+        transferType        <- map["transfer_type"]
+        transfer            <- map["transfer_data"]
+        createdAt           <- (map["created_at"], DateTransform())
+        dayOfWeek           <- map["day_of_week"]
+        dayOfMonth          <- map["day_of_month"]
+        nextProcessingDate  <- (map["next_processing_date"], DateTransform())
     }
 }
 
