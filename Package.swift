@@ -1,4 +1,5 @@
-// swift-tools-version:5.3
+// swift-tools-version: 5.7.0
+
 import PackageDescription
 
 let package = Package(
@@ -9,20 +10,21 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            name: "PayseraCommonSDK",
             url: "https://github.com/paysera/swift-lib-common-sdk",
-            .exact("4.2.3")
+            from: "4.3.0"
         ),
         .package(
-            name: "PayseraAccountsSDK",
             url: "https://github.com/paysera/swift-lib-accounts-sdk",
-            from: "8.6.4"
+            from: "8.9.0"
         )
     ],
     targets: [
         .target(
             name: "PayseraRecurringPaymentsSDK",
-            dependencies: ["PayseraCommonSDK", "PayseraAccountsSDK"]
+            dependencies: [
+                .product(name: "PayseraCommonSDK", package: "swift-lib-common-sdk"),
+                .product(name: "PayseraAccountsSDK", package: "swift-lib-accounts-sdk")
+            ]
         ),
         .testTarget(
             name: "PayseraRecurringPaymentsSDKTests",
